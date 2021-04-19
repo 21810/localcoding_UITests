@@ -6,6 +6,6 @@ class HomePage extends BasePage {
     open() {
         super.open('/');
     };
-};
+}
 
 export default new HomePage();

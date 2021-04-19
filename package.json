@@ -26,6 +26,7 @@
     "@wdio/mocha-framework": "^7.4.6",
     "@wdio/selenium-standalone-service": "^7.4.2",
     "@wdio/spec-reporter": "^7.4.3",
+    "eslint": "^7.24.0",
     "geckodriver": "^1.22.3",
     "wdio-geckodriver-service": "^1.1.2",
     "wdio-safaridriver-service": "^0.0.1",

@@ -1,7 +1,7 @@
-import BasePage from "../base.page";
+import BasePage from '../base.page';
 
 class ProfilePortalPage extends BasePage {
-    get iconUser () { return $('.ant-avatar-square')};
+    get iconUser () { return $('.ant-avatar-square');}
 
     isOpen () {
         expect(browser).toHaveUrlContaining('profile');

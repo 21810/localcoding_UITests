@@ -1,7 +1,7 @@
-import HomePage from '../../pages/home.page';
-import LoginPage from '../../pages/users/login.page';
-import ProfilePage from '../../pages/users/profile.page';
-import testUser from '../../data/testUser.json';
+import HomePage from '../../../../pages/home.page';
+import LoginPage from '../../../../pages/users/login.page';
+import ProfilePage from '../../../../pages/users/profile.page';
+import testUser from '../../../../data/testUser.json';
 
 describe('LOGIN PAGE - POSITIVE', () => {
   before(() => {

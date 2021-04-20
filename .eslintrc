@@ -1,9 +1,13 @@
 {
+    "plugins": [
+        "wdio",
+        "webdriverio"
+    ],
+    "extends": "plugin:wdio/recommended",
     "env": {
-        "es2021": true,
-        "node": true
+        "webdriverio/wdio": true,
+        "mocha": true
     },
-    "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaVersion": 12,
         "sourceType": "module"
@@ -11,7 +15,7 @@
     "rules": {
         "indent": [
             "error",
-            4
+            2
         ],
         "linebreak-style": [
             "error",

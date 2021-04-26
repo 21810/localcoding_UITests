@@ -1,26 +1,26 @@
-//const hooks = require('./config/hooks.conf');
+const hooks = require('./config/hooks.conf');
 const base = require('./config/base.conf');
 
 exports.config = {
-    runner: 'local',
+  runner: 'local',
 
-    maxInstances: 1,
-    capabilities: [
-        {
-            maxInstances: 1,
-            browserName: 'chrome',
-            acceptInsecureCerts: true,
-            'goog:chromeOptions': {
-                args: ['--window-size=1920,1080']
-                //args: ['--window-size=1280,720']
-                //args: ["--start-maximized"],
-            },
-        }
-    ],
+  maxInstances: 1,
+  capabilities: [
+    {
+      maxInstances: 1,
+      browserName: 'chrome',
+      acceptInsecureCerts: true,
+      'goog:chromeOptions': {
+        args: ['--window-size=1920,1080']
+        //args: ['--window-size=1280,720']
+        //args: ["--start-maximized"],
+      },
+    }
+  ],
 
-    services: ['devtools'],
-    //services: ['selenium-standalone'],
+  services: ['devtools'],
+  //services: ['selenium-standalone'],
 
-    ...base,
-    //...hooks
-}
+  ...base,
+  ...hooks
+};

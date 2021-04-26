@@ -1,19 +1,19 @@
-//const hooks = require('./config/hooks.conf');
+const hooks = require('./config/hooks.conf');
 const base = require('./config/base.conf');
 
 exports.config = {
-    runner: 'local',
+  runner: 'local',
 
-    maxInstances: 1,
-    capabilities: [
-        {
-            maxInstances: 1,
-            browserName: 'firefox',
-        }
-    ],
+  maxInstances: 1,
+  capabilities: [
+    {
+      maxInstances: 1,
+      browserName: 'firefox',
+    }
+  ],
 
-    services: ['geckodriver'],
+  services: ['geckodriver'],
 
-    ...base,
-    //...hooks
-}
+  ...base,
+  ...hooks
+};

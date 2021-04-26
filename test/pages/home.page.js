@@ -1,4 +1,5 @@
 import BasePage from './base.page';
+import {url} from './../specs/constants';
 
 class HomePage extends BasePage {
   // top navigation menu
@@ -6,7 +7,7 @@ class HomePage extends BasePage {
   get linkLogin () { return $('//a[@data-qa="login"]');}
 
   open() {
-    super.open('/');
+    super.open(url.baseUrl);
   }
 }
 

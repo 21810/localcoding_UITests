@@ -1,5 +1,6 @@
 import BasePage from '../base.page';
-import TestUser from '../../data/testUser.json';
+import expected from '../../data/expected.json';
+import {url} from '../../specs/constants';
 
 
 class RegistrationPage extends BasePage {
@@ -9,21 +10,21 @@ class RegistrationPage extends BasePage {
   }
 
   open() {
-    super.open('/user/register');
+    super.open(url.register);
   }
 
   getTitleLocalCoding() {
     const title = browser.getTitle();
-    expect(title).toEqual(TestUser.registration.title);
+    expect(title).toEqual(expected.registration.title);
   }
 
   verifyURL() {
     const regURL = browser.getUrl();
-    expect(regURL).toEqual(TestUser.registration.url);
+    expect(regURL).toEqual(expected.registration.url);
   }
 
   verifyHeader() {
-    expect(this.header).toHaveText(TestUser.registration.header);
+    expect(this.header).toHaveText(expected.registration.header);
   }
 }
 

@@ -1,7 +1,6 @@
 module.exports = {
   specs: [
-    // './test/specs/**/*.js',
-    './test/specs/regression/users/registration/userRegistration.spec.js'
+    './test/specs/**/*.js',
   ],
   // exclude: [
   //     './test/specs/navigation.spec.js'

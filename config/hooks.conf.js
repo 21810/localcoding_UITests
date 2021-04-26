@@ -1,5 +1,5 @@
-import LoginPage from '../test/pageobjects/login.page';
-import ProfilePage from '../test/pageobjects/portal/profile.portal.page';
+import LoginPage from '../test/pages/users/login.page';
+import ProfilePage from '../test/pages/users/profile.page';
 
 module.exports = {
   before: function (capabilities, specs) {

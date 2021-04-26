@@ -1,5 +1,14 @@
 {
   "email": "Ocie_Krajcik84@gmail.com",
   "password": "kiFNlg4j8vappbl",
-  "logoutLink": "Logout"
+  "logoutLink": "Logout",
+
+
+  "registration": {
+    "url": "https://stage.localcoding.us/user/register",
+    "title": "Local Coding",
+    "header": "Create an account"
+
+  }
 }
+

@@ -1,7 +1,5 @@
 import HomePage from '../../../../pages/home.page';
 import RegisterPage from '../../../../pages/users/registration.page';
-import ProfilePage from '../../../../pages/users/profile.page';
-import testUser from '../../../../data/testUser.json';
 
 describe('REGISTRATION PAGE - POSITIVE', () => {
 

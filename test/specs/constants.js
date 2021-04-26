@@ -1,14 +1,14 @@
-const baseUrl = 'https://stage.localcoding.us';
-
 const url = {
-  baseUrl,
+  baseUrl: '/',
+  //users
+  login: '/user/login',
+  register: '/user/register',
+  //challenges
+  challenges: '/challenge',
 
-  login: `${baseUrl}/user/login`,
-  register: `${baseUrl}/user/register`,
   server: 'https://server-stage.pasv.us',
 };
 
 module.exports = {
-  url,
-  baseUrl
+  url
 };

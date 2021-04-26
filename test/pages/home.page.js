@@ -1,4 +1,5 @@
 import BasePage from './base.page';
+import {url} from './../specs/constants';
 
 class HomePage extends BasePage {
   // top navigation menu
@@ -7,7 +8,7 @@ class HomePage extends BasePage {
   get btnStartRightNow () { return $('//a[@class="ant-btn ant-btn-primary login-form-button"][contains(text(),"Start Right Now!")]');}
 
   open() {
-    super.open('/');
+    super.open(url.baseUrl);
   }
 
 

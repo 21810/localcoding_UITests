@@ -7,6 +7,8 @@ class LoginPage extends BasePage {
   get buttonSubmit () { return $('.login-form-button'); }
   get userDropdown () { return $('.ml-2.mr-2'); }
   get logoutDropdownLink () { return $('li[data-qa="logout"]'); }
+  get logoLink () {return $('.site-name'); }
+  get LoginPageHeader () {return $('#normal_login>.mb-4'); }
 
   open(path) {
     browser.url(url.login);

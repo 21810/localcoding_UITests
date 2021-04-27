@@ -1,10 +1,16 @@
 module.exports = {
   specs: [
-    './test/specs/**/*.js'
+    './test/specs/**/*.js',
   ],
   // exclude: [
   //     './test/specs/navigation.spec.js'
   // ],
+  suites: {
+    smoke: ['./test/specs/smoke/**/*.js'],
+    challenges: ['./test/specs/regression/challenges/**/*spec.js'],
+    navigation: ['./test/specs/regression/navigation/**/*spec.js'],
+    users: ['./test/specs/regression/users/**/*spec.js']
+  },
 
   logLevel: 'info',
   bail: 0,

@@ -1,3 +1,13 @@
 {
-  "header" : "Welcome back!"
+  "header" : "Welcome back!",
+
+  "logoutLink": "Logout",
+
+  "registration": {
+    "url": "https://stage.localcoding.us/user/register",
+    "title": "Local Coding",
+    "header": "Create an account"
+
+  }
 }
+

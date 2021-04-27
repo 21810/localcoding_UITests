@@ -1,11 +1,12 @@
 import HomePage from '../../../../pages/home.page';
 import LoginPage from '../../../../pages/users/login.page';
 import ProfilePage from '../../../../pages/users/profile.page';
-import testUser from '../../../../data/testUser.json';
 import {url} from '../../../constants';
 const expValue = require ('../../../../data/expected.json')
+import {users} from '../../../../data/users.data';
 
-describe('LOGIN PAGE - POSITIVE', () => {
+
+describe('USER LOGIN - POSITIVE', () => {
   before(() => {
     HomePage.open();
     HomePage.linkLogin.click();
@@ -17,6 +18,7 @@ describe('LOGIN PAGE - POSITIVE', () => {
   //   LoginPage.clickSubmitButton();
   //   ProfilePage.isOpen();
   // });
+
 
   it('TC-LOG001 should verify that Login Page has "Local Coding" logo-link', function () {
     expect(LoginPage.logoLink.isDisplayed()).toEqual(true);
@@ -32,5 +34,5 @@ describe('LOGIN PAGE - POSITIVE', () => {
   it('TC-LOG004 should  verify that Login page has a header above the email input field ', function () {
     HomePage.linkLogin.click();
     expect(LoginPage.LoginPageHeader.getText()).toEqual(expValue.header);
-  });
+  });  
 });

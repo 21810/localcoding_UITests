@@ -14,5 +14,18 @@ describe ('User Logout - Smoke', () => {
     const logoutText = LoginPage.logoutDropdownLink.getText();
     expect(logoutText).toEqual(expected.logoutLink);
   });
+});
 
+describe ('User Login Smoke', () => {
+
+  before(() => {
+    LoginPage.open();
+  });
+
+  it('should verify that user can login with valid credentials', () => {
+    LoginPage.setEmail(users.new.email);
+    LoginPage.setPassword(users.new.password);
+    LoginPage.clickSubmitButton();
+    ProfilePortalPage.isOpen();
+  });
 });

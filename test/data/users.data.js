@@ -53,6 +53,14 @@ const users = {
     country: '',
     phone: '12312312334',
   },
+  name: {
+    oneSymbol: 'P',
+    tenSymbols: 'PedroPedro',
+    twentySymbols: 'PedroPedroPedroPedroPedro',
+    twentyOneSymbols: 'PedroPedroPedroPedroP',
+    digits: '123',
+    specialChar: '!@#$%'
+  }
 };
 
 module.exports = { users };

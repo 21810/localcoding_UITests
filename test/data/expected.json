@@ -8,6 +8,16 @@
     "title": "Local Coding",
     "header": "Create an account"
 
+  },
+  "name": {
+    "oneSymbol": "P",
+    "tenSymbols": "PedroPedro",
+    "twentySymbols": "PedroPedroPedroPedroPedro",
+    "twentyOneSymbols": "PedroPedroPedroPedroP"
+  },
+  "errorMessages": {
+    "nameShouldNotIncludeNumbers": "Name should not include numbers",
+    "nameShouldNotIncludeCharacters": "Name should not include non word characters"
   }
 }
 

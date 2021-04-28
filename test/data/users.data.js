@@ -58,7 +58,7 @@ const users = {
     tenSymbols: 'PedroPedro',
     twentySymbols: 'PedroPedroPedroPedroPedro',
     twentyOneSymbols: 'PedroPedroPedroPedroP',
-    digits: '123',
+    digits: 123,
     specialChar: '!@#$%'
   }
 };

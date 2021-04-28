@@ -59,11 +59,11 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
       RegisterPage.verifyInputFirstName(userData.users.name.twentyOneSymbols, expected.name.twentyOneSymbols);
     });
 
-    it.skip('TC - REG011 Verify that input field does not accept digits', () => {
+    it('TC - REG011 Verify that input field does not accept digits', () => {
       RegisterPage.verifyErrorNameNotIncludeNumbers(userData.users.name.digits, expected.errorMessages.nameShouldNotIncludeNumbers);
     });
 
-    it.skip('TC - REG012 Verify that special characters are not allowed other than apostrophe or dash', () => {
+    it('TC - REG012 Verify that special characters are not allowed other than apostrophe or dash', () => {
       RegisterPage.verifyErrorNameNotIncludeNumbers(userData.users.name.specialChar, expected.errorMessages.nameShouldNotIncludeCharacters);
     });
   });
@@ -97,11 +97,11 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
       RegisterPage.verifyInputFieldLastName(userData.users.name.twentyOneSymbols, expected.name.twentyOneSymbols);
     });
 
-    it.skip('TC - REG019 Verify that input field does not accept digits', () => {
+    it('TC - REG019 Verify that input field does not accept digits', () => {
       RegisterPage.verifyErrorLastNameNotIncludeNumbers(userData.users.name.digits, expected.errorMessages.nameShouldNotIncludeNumbers);
     });
 
-    it.skip('TC - REG020 Verify that special characters are not allowed other than apostrophe or dash', () => {
+    it('TC - REG020 Verify that special characters are not allowed other than apostrophe or dash', () => {
       RegisterPage.verifyErrorLastNameNotIncludeNumbers(userData.users.name.specialChar, expected.errorMessages.nameShouldNotIncludeCharacters);
     });
 

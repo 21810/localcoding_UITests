@@ -55,9 +55,9 @@ describe('CHALLENGES LIST - SEARCH', () => {
         if (testCase.expectedCount > 0)
           return ChallengesPage.getItemsTotalText() == expected.challenges.search.textTotalItems + testCase.expectedCount;
         else
-          return ChallengesPage.textEmptyTable.waitForDisplayed(1500);
+          return ChallengesPage.textEmptyTable.isDisplayed();
       }, {
-        timeout: 1500,
+        timeout: 2000,
         timeoutMsg: 'count of table rows to different after 1.5s'
       });
       expect(ChallengesPage.getCountOfTableRows()).toEqual(testCase.expectedCount);

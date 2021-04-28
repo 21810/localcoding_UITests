@@ -1,7 +1,11 @@
 # localcoding_UITests
 
 **To run test in browsers:**
+* default (chrome): npm test
+
 * chrome: npm run test:chrome
+
+* chrome headless: npm run test:chrome.headless
 
 * firefox: npm run test:firefox
 

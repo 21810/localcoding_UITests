@@ -1,6 +1,7 @@
 import LoginPage from '../../pages/users/login.page';
 import expected from '../../data/expected.json';
 import {users} from '../../data/users.data';
+import ProfilePortalPage from '../../pages/users/profile.page';
 
 describe ('User Logout - Smoke', () => {
 
@@ -14,5 +15,18 @@ describe ('User Logout - Smoke', () => {
     const logoutText = LoginPage.logoutDropdownLink.getText();
     expect(logoutText).toEqual(expected.logoutLink);
   });
+});
 
+describe ('User Login Smoke', () => {
+
+  before(() => {
+    LoginPage.open();
+  });
+
+  it('should verify that user can login with valid credentials', () => {
+    LoginPage.setEmail(users.new.email);
+    LoginPage.setPassword(users.new.password);
+    LoginPage.clickSubmitButton();
+    ProfilePortalPage.isOpen();
+  });
 });

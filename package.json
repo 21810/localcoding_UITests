@@ -8,10 +8,11 @@
     "test:chrome": "npx wdio run chrome.conf.js",
     "test:firefox": "npx wdio run firefox.conf.js",
     "test:safari": "npx wdio run safari.conf.js",
-    "test:users" : "npx wdio run chrome.conf.js --suite users",
-    "test:navigation" : "npx wdio run chrome.conf.js --suite navigation",
-    "test:challenges" : "npx wdio run chrome.conf.js --suite challenges",
-    "test:smoke" : "npx wdio run chrome.conf.js --suite smoke",
+    "test:users": "npx wdio run chrome.conf.js --suite users",
+    "test:navigation": "npx wdio run chrome.conf.js --suite navigation",
+    "test:challenges": "npx wdio run chrome.conf.js --suite challenges",
+    "test:registration": "npx wdio run chrome.conf.js --suite registration",
+    "test:smoke": "npx wdio run chrome.conf.js --suite smoke",
     "report:serve": "npx allure serve allure-results",
     "report:generate": "npx allure generate allure-results -o allure-report --clean",
     "report:open": "npx allure open allure-report"
@@ -40,6 +41,7 @@
     "eslint": "^7.24.0",
     "eslint-plugin-wdio": "^7.4.2",
     "geckodriver": "^1.22.3",
+    "supertest": "^6.1.3",
     "wdio-geckodriver-service": "^1.1.2",
     "wdio-safaridriver-service": "^0.0.1",
     "wdio-selenium-standalone-service": "^0.0.12"

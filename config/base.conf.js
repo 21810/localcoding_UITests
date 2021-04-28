@@ -9,10 +9,11 @@ module.exports = {
     smoke: ['./test/specs/smoke/**/*.js'],
     challenges: ['./test/specs/regression/challenges/**/*spec.js'],
     navigation: ['./test/specs/regression/navigation/**/*spec.js'],
-    users: ['./test/specs/regression/users/**/*spec.js']
+    users: ['./test/specs/regression/users/**/*spec.js'],
+    registration: ['./test/specs/regression/users/registration/*spec.js'],
   },
 
-  logLevel: 'info',
+  logLevel: 'silent',
   bail: 0,
 
   waitforTimeout: 10000,
@@ -24,7 +25,7 @@ module.exports = {
   framework: 'mocha',
   reporters: ['spec', ['allure', {
     outputDir: 'allure-results',
-    disableWebdriverStepsReporting: false,
+    disableWebdriverStepsReporting: true,
   }]],
   mochaOpts: {
     require: ['@babel/register'],

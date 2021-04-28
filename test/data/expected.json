@@ -1,4 +1,6 @@
 {
+  "header" : "Welcome back!",
+
   "logoutLink": "Logout",
 
   "registration": {
@@ -14,6 +16,17 @@
     "search" : {
       "textTotalItems": "Items "
     }
+  },
+
+  "name": {
+    "oneSymbol": "P",
+    "tenSymbols": "PedroPedro",
+    "twentySymbols": "PedroPedroPedroPedroPedro",
+    "twentyOneSymbols": "PedroPedroPedroPedroP"
+  },
+  "errorMessages": {
+    "nameShouldNotIncludeNumbers": "Name should not include numbers",
+    "nameShouldNotIncludeCharacters": "Name should not include non word characters"
   }
 }
 

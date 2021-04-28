@@ -10,7 +10,7 @@ module.exports = {
     challenges: ['./test/specs/regression/challenges/**/*spec.js'],
     navigation: ['./test/specs/regression/navigation/**/*spec.js'],
     users: ['./test/specs/regression/users/**/*spec.js'],
-    registration: ['./test/specs/regression/users/registration/*spec.js'],
+    registration: ['./test/specs/regression/users/registration/*spec.js']
   },
 
   logLevel: 'silent',

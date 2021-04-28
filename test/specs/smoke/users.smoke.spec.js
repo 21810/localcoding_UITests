@@ -1,6 +1,7 @@
 import LoginPage from '../../pages/users/login.page';
 import expected from '../../data/expected.json';
 import {users} from '../../data/users.data';
+import ProfilePortalPage from '../../pages/users/profile.page';
 
 describe ('User Logout - Smoke', () => {
 

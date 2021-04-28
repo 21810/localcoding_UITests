@@ -8,17 +8,8 @@ import {users} from '../../../../data/users.data';
 
 describe('USER LOGIN - POSITIVE', () => {
   before(() => {
-    HomePage.open();
-    HomePage.linkLogin.click();
+    LoginPage.open();
   });
-  //
-  // it('should verify that user can login with valid credentials', () => {
-  //   LoginPage.setEmail(testUser.email);
-  //   LoginPage.setPassword(testUser.password);
-  //   LoginPage.clickSubmitButton();
-  //   ProfilePage.isOpen();
-  // });
-
 
   it('TC-LOG001 should verify that Login Page has "Local Coding" logo-link', function () {
     expect(LoginPage.logoLink.isDisplayed()).toEqual(true);
@@ -34,5 +25,17 @@ describe('USER LOGIN - POSITIVE', () => {
   it('TC-LOG004 should  verify that Login page has a header above the email input field ', function () {
     HomePage.linkLogin.click();
     expect(LoginPage.LoginPageHeader.getText()).toEqual(expValue.header);
-  });  
+  });
+  it('TC-LOG005 Verify that Login page has email input field ', function () {
+    LoginPage.verifyEmailIfPresent();
+  });
+  it('TC-LOG006 Verify that Login page has password input field ', function () {
+    LoginPage.verifyPasswordIfPresent();
+  });
+  it('TC-LOG007 Verify that Login Page has submit button', function () {
+    LoginPage.verifyButtonSubmitPresent();
+  });
+  it('TC-LOG008 Verify that submit button text = "Log in"', function () {
+    LoginPage.verifyButtonSubmitLogin();
+  });
 });

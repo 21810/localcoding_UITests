@@ -31,6 +31,18 @@ class LoginPage extends BasePage {
     this.setPassword(password);
     this.clickSubmitButton();
   }
+  verifyEmailIfPresent() {
+    expect(this.inputEmail).toBeExisting();
+  }
+  verifyPasswordIfPresent() {
+    expect(this.inputPassword).toBeExisting();
+  }
+  verifyButtonSubmitPresent() {
+    expect(this.buttonSubmit).toBeExisting();
+  }
+  verifyButtonSubmitLogin() {
+    expect(this.buttonSubmit).toHaveText('Log in');
+  }
 }
 
 export default new LoginPage();

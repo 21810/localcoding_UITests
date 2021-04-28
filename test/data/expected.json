@@ -7,8 +7,17 @@
     "url": "https://stage.localcoding.us/user/register",
     "title": "Local Coding",
     "header": "Create an account"
-
   },
+
+  "challenges": {
+    "list" : {
+      "header": "Challenges"
+    },
+    "search" : {
+      "textTotalItems": "Items "
+    }
+  },
+
   "name": {
     "oneSymbol": "P",
     "tenSymbols": "PedroPedro",

@@ -12,7 +12,9 @@ class HomePage extends BasePage {
     super.open(url.baseUrl);
   }
 
-
+  clickChallengesLink() {
+    this.linkChallenges.click();
+  }
 }
 
 export default new HomePage();

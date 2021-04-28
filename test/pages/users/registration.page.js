@@ -13,8 +13,16 @@ class RegistrationPage extends BasePage {
     return $('#user_login_firstName');
   }
 
+  get inputFieldLastName() {
+    return $('#user_login_lastName');
+  }
+
   get errorNameNotIncludeNumbers() {
     return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_firstName"]]//div[@role="alert"]');
+  }
+
+  get errorLastNameNotIncludeNumbers() {
+    return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_lastName"]]//div[@role="alert"]');
   }
 
   open() {
@@ -39,8 +47,16 @@ class RegistrationPage extends BasePage {
     expect(this.inputFieldFirstName).toBeExisting();
   }
 
+  verifyIFLastNameExists() {
+    expect(this.inputFieldLastName).toBeExisting();
+  }
+
   verifyIFFirstNamePlaceholder() {
     expect(this.inputFieldFirstName).toHaveAttribute('placeholder', 'First Name');
+  }
+
+  verifyIFLastnamePlaceholder() {
+    expect(this.inputFieldLastName).toHaveAttribute('placeholder', 'Last Name');
   }
 
   verifyInputFirstName(symbols, exp) {
@@ -48,10 +64,21 @@ class RegistrationPage extends BasePage {
     expect(this.inputFieldFirstName).toHaveValue(exp);
   }
 
+  verifyInputFieldLastName(symbols, exp) {
+    this.inputFieldLastName.setValue(symbols);
+    expect(this.inputFieldLastName).toHaveValue(exp);
+  }
+
   verifyErrorNameNotIncludeNumbers(symbols, err) {
     this.inputFieldFirstName.setValue(symbols);
     expect(this.errorNameNotIncludeNumbers).toBeDisplayed();
     expect(this.errorNameNotIncludeNumbers).toHaveText(err);
+  }
+
+  verifyErrorLastNameNotIncludeNumbers(symbols, err) {
+    this.inputFieldLastName.setValue(symbols);
+    expect(this.errorLastNameNotIncludeNumbers).toBeDisplayed();
+    expect(this.errorLastNameNotIncludeNumbers).toHaveText(err);
   }
 }
 

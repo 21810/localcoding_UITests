@@ -107,4 +107,50 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
 
   });
 
+  describe('REGISTRATION PAGE - COUNTRY DROPDOWN', () => {
+    before(() => {
+      RegisterPage.open();
+    });
+
+    it('TC - REG021 Verify that label "Country" is present', () => {
+      RegisterPage.verifyInputfieldCountryExist();
+    });
+  });
+
+  describe('REGISTRATION PAGE - PHONE INPUT FIELD', () => {
+    before(() => {
+      RegisterPage.open();
+    });
+  });
+
+  describe('REGISTRATION PAGE - EMAIL INPUT FIELD', () => {
+    before(() => {
+      RegisterPage.open();
+    });
+  });
+
+  describe('REGISTRATION PAGE - PASSWORD INPUT FIELD', () => {
+    before(() => {
+      RegisterPage.open();
+    });
+  });
+
+  describe('REGISTRATION PAGE - TERMS AND AGREEMENTS', () => {
+    before(() => {
+      RegisterPage.open();
+    });
+  });
+
+  describe('REGISTRATION PAGE - REGISTER BUTTON', () => {
+    before(() => {
+      RegisterPage.open();
+    });
+  });
+
+  describe('REGISTRATION PAGE - FOOTER', () => {
+    before(() => {
+      RegisterPage.open();
+    });
+  });
+
 });

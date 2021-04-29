@@ -2,28 +2,17 @@ import BasePage from '../base.page';
 import expected from '../../data/expected.json';
 import {url} from '../../specs/constants';
 
-
 class RegistrationPage extends BasePage {
 
-  get header() {
-    return $('h1');
-  }
-
-  get inputFieldFirstName() {
-    return $('#user_login_firstName');
-  }
-
-  get inputFieldLastName() {
-    return $('#user_login_lastName');
-  }
-
-  get errorNameNotIncludeNumbers() {
-    return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_firstName"]]//div[@role="alert"]');
-  }
-
-  get errorLastNameNotIncludeNumbers() {
-    return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_lastName"]]//div[@role="alert"]');
-  }
+  get header() {return $('h1');}
+  get inputFieldFirstName() {return $('#user_login_firstName');}
+  get inputFieldLastName() {return $('#user_login_lastName');}
+  get inputFieldCountry() {return $('#user_login_countryName');}
+  get inputFieldPhone() {return $('user_login_phone');}
+  get inputFieldEmail () {return $('#user_login_email');}
+  get inputFieldPassword () {return $('user_login_password');}
+  get errorNameNotIncludeNumbers() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_firstName"]]//div[@role="alert"]');}
+  get errorLastNameNotIncludeNumbers() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_lastName"]]//div[@role="alert"]');}
 
   open() {
     super.open(url.register);
@@ -67,6 +56,10 @@ class RegistrationPage extends BasePage {
   verifyInputFieldLastName(symbols, exp) {
     this.inputFieldLastName.setValue(symbols);
     expect(this.inputFieldLastName).toHaveValue(exp);
+  }
+
+  verifyInputfieldCountryExist() {
+    expect(this.inputFieldCountry).toBeExisting();
   }
 
   verifyErrorNameNotIncludeNumbers(symbols, err) {

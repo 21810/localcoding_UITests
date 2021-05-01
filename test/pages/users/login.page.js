@@ -8,8 +8,9 @@ class LoginPage extends BasePage {
   get userDropdown () { return $('.ml-2.mr-2'); }
   get logoutDropdownLink () { return $('li[data-qa="logout"]'); }
   get logoLink () {return $('.site-name'); }
-  get LoginPageHeader () {return $('#normal_login>.mb-4'); }
-
+  get loginPageHeader () {return $('#normal_login>.mb-4'); }
+  get createOneLink () {return $('//a[contains(text(),"Create one")]'); }
+  get resetItLink () {return $('//a[contains(text(),"Reset it")]'); }
   open(path) {
     browser.url(url.login);
   }

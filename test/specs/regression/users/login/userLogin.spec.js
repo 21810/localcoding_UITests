@@ -2,12 +2,14 @@ import HomePage from '../../../../pages/home.page';
 import LoginPage from '../../../../pages/users/login.page';
 import ProfilePage from '../../../../pages/users/profile.page';
 import {url} from '../../../constants';
-const expValue = require ('../../../../data/expected.json')
+const expValue = require ('../../../../data/expected.json');
 import {users} from '../../../../data/users.data';
+import RegisterPage from '../../../../pages/users/registration.page';
+import ResetPage from '../../../../pages/users/reset.page';
 
 
-describe('USER LOGIN - POSITIVE', () => {
-  before(() => {
+describe.only('USER LOGIN - POSITIVE', () => {
+  beforeEach(() => {
     LoginPage.open();
   });
 
@@ -22,9 +24,8 @@ describe('USER LOGIN - POSITIVE', () => {
     LoginPage.logoLink.click();
     expect(HomePage.getStarted.isDisplayed()).toEqual(true);
   });
-  it('TC-LOG004 should  verify that Login page has a header above the email input field ', function () {
-    HomePage.linkLogin.click();
-    expect(LoginPage.LoginPageHeader.getText()).toEqual(expValue.header);
+  it('TC-LOG004 should  verify that Login page has a header "Welcome back!"', function () {
+    expect(LoginPage.loginPageHeader.getText()).toEqual(expValue.login.header);
   });
   it('TC-LOG005 Verify that Login page has email input field ', function () {
     LoginPage.verifyEmailIfPresent();
@@ -37,5 +38,19 @@ describe('USER LOGIN - POSITIVE', () => {
   });
   it('TC-LOG008 Verify that submit button text = "Log in"', function () {
     LoginPage.verifyButtonSubmitLogin();
+  });
+  it('TC-LOG009 Verify that the Login Page has the active "Create one." link', function () {
+    expect(LoginPage.createOneLink.isEnabled()).toEqual(true);
+  });
+  it('TC-LOG010 Verify that the User is redirected to Registration page after clicking on "Create one." link', function () {
+    LoginPage.createOneLink.click();
+    expect(RegisterPage.header.getText()).toEqual(expValue.registration.header);
+  });
+  it('TC-LOG011 Verify that the Login Page has the active "Reset it."', function () {
+    expect(LoginPage.resetItLink.isEnabled()).toEqual(true);
+  });
+  it('TC-LOG012 Verify that the User is redirected to Password reset page after clicking on "Reset it." link', function () {
+    LoginPage.resetItLink.click();
+    expect(ResetPage.resetHeader.getText()).toEqual(expValue.reset.resetHeader);
   });
 });

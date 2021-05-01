@@ -3,6 +3,7 @@ const url = {
   //users
   login: '/user/login',
   register: '/user/register',
+  reset: '/user/password/reset',
   //challenges
   challenges: '/challenge',
 

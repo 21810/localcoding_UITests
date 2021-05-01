@@ -3,7 +3,6 @@ const base = require('./config/base.conf');
 
 exports.config = {
   runner: 'local',
-
   maxInstances: 1,
   capabilities: [
     {
@@ -11,13 +10,24 @@ exports.config = {
       browserName: 'chrome',
       acceptInsecureCerts: true,
       'goog:chromeOptions': {
-        args: ['--window-size=1920,1080', '--headless', '--disable-gpu']
+        args: ['--window-size=1280,720', '--headless', '--disable-gpu']
       },
     }
   ],
-
   services: ['devtools', 'selenium-standalone'],
-
   ...base,
   ...hooks
 };
+
+
+
+
+
+
+
+
+
+
+
+
+

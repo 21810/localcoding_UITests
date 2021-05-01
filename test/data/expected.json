@@ -24,9 +24,16 @@
     "twentySymbols": "PedroPedroPedroPedroPedro",
     "twentyOneSymbols": "PedroPedroPedroPedroP"
   },
+
   "errorMessages": {
     "nameShouldNotIncludeNumbers": "Name should not include numbers",
     "nameShouldNotIncludeCharacters": "Name should not include non word characters"
+  },
+
+  "country": {
+    "UnitedStates": "United States",
+    "Russia": "Russia",
+    "Ukraine": "Ukraine"
   }
 }
 

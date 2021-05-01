@@ -36,11 +36,12 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
     });
 
     it('TC - REG005 Verify the input field First Name is present ', () => {
-      RegisterPage.verifyIFFirstNameExist();
+      expect(RegisterPage.inputFieldFirstName).toBeExisting();
     });
 
     it('TC - REG006 Verify that input field First Name placeholder text = "First Name" ', () => {
-      RegisterPage.verifyIFFirstNamePlaceholder();
+      expect(RegisterPage.inputFieldFirstName).toHaveAttribute('placeholder','First Name');
+      // RegisterPage.verifyIFFirstNamePlaceholder();
     });
 
     it('TC - REG007 Verify that the user can input 1 symbol', () => {
@@ -53,10 +54,6 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
 
     it('TC - REG009 Verify that the user can input 20 symbols', () => {
       RegisterPage.verifyInputFirstName(userData.users.name.twentySymbols, expected.name.twentySymbols);
-    });
-
-    it.skip('TC - REG010 Verify that the user can input 21 symbols', () => {
-      RegisterPage.verifyInputFirstName(userData.users.name.twentyOneSymbols, expected.name.twentyOneSymbols);
     });
 
     it('TC - REG011 Verify that input field does not accept digits', () => {
@@ -74,11 +71,13 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
     });
 
     it('TC - REG013 Verify the input field Last Name is present', () => {
-      RegisterPage.verifyIFLastNameExists();
+      // RegisterPage.verifyIFLastNameExists();
+      expect(RegisterPage.inputFieldLastName).toBeExisting();
     });
 
     it('TC - REG014 Verify that input field\'s placeholder text = Last Name', () => {
-      RegisterPage.verifyIFLastnamePlaceholder();
+      // RegisterPage.verifyIFLastnamePlaceholder();
+      expect(RegisterPage.inputFieldLastName).toHaveAttribute('placeholder', 'Last Name');
     });
 
     it('TC - REG015 Verify that the user can input 1 symbol', () => {
@@ -112,9 +111,20 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
       RegisterPage.open();
     });
 
-    it('TC - REG021 Verify that label "Country" is present', () => {
-      RegisterPage.verifyInputfieldCountryExist();
+    it.only('TC - REG021 Verify that label "Country" is present', () => {
+      // RegisterPage.verifyIFCountryExist();
+      expect(RegisterPage.inputFieldCountry).toBeExisting();
     });
+
+    it('TC - REG023 Verify that dropdown menu contains option by default "United States"', () => {
+      RegisterPage.verifyIFCountryPlaceholder();
+    });
+
+    it('TC - REG024 Verify that dropdown menu contains "Russia"', () => {
+      RegisterPage.chooseCountry(RegisterPage.inputFieldCountry, userData.users.country.Russia);
+      expect(RegisterPage.selectedCountry).toHaveText(expected.country.Russia);
+    });
+
   });
 
   describe('REGISTRATION PAGE - PHONE INPUT FIELD', () => {
@@ -152,5 +162,6 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
       RegisterPage.open();
     });
   });
-
 });
+
+

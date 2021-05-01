@@ -19,7 +19,6 @@ class RegistrationPage extends BasePage {
   open() {
     super.open(url.register);
   }
-
   getTitleLocalCoding() {
     const title = browser.getTitle();
     expect(title).toEqual(expected.registration.title);
@@ -34,30 +33,6 @@ class RegistrationPage extends BasePage {
     expect(this.header).toHaveText(expected.registration.header);
   }
 
-  // verifyIFFirstNameExist() {
-  //   expect(this.inputFieldFirstName).toBeExisting();
-  // }
-
-  // verifyIFLastNameExists() {
-  //   expect(this.inputFieldLastName).toBeExisting();
-  // }
-
-  // verifyIFCountryExist() {
-  //   expect(this.inputFieldCountry).toBeExisting();
-  // }
-
-  // verifyIFFirstNamePlaceholder() {
-  //   expect(this.inputFieldFirstName).toHaveAttribute('placeholder', 'First Name');
-  // }
-
-  // verifyIFLastnamePlaceholder() {
-  //   expect(this.inputFieldLastName).toHaveAttribute('placeholder', 'Last Name');
-  // }
-
-  verifyIFCountryPlaceholder() {
-    expect(this.inputFieldCountry).toHaveText('United States');
-  }
-
   verifyInputFirstName(symbols, exp) {
     this.inputFieldFirstName.setValue(symbols);
     expect(this.inputFieldFirstName).toHaveValue(exp);
@@ -68,18 +43,7 @@ class RegistrationPage extends BasePage {
     expect(this.inputFieldLastName).toHaveValue(exp);
   }
 
-  // verifyCountryDropdown () {
-  //   this.inputFieldCountry.click();
-  //   browser.pause(3000);
-  //   this.countryNameList.click();
-  //   browser.pause(3000);
-  //   this.countryNameRussia.click();
-  //   browser.pause(3000);
-  //   expect(this.inputFieldCountry).toHaveText('Russia');
-  //   browser.pause(3000);
-  // }
-
-  chooseCountry(elem, text) {
+  selectCountry(elem, text) {
     elem.click();
     let valueOfCountry;
     let iteration = true;

@@ -60,6 +60,11 @@ const users = {
     twentyOneSymbols: 'PedroPedroPedroPedroP',
     digits: 123,
     specialChar: '!@#$%'
+  },
+  country: {
+    UnitedStates: 'United States',
+    Russia: 'Russia',
+    Ukraine: 'Ukraine'
   }
 };
 

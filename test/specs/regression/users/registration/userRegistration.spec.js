@@ -36,11 +36,11 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
     });
 
     it('TC - REG005 Verify the input field First Name is present ', () => {
-      RegisterPage.verifyIFFirstNameExist();
+      expect(RegisterPage.inputFieldFirstName).toBeExisting();
     });
 
     it('TC - REG006 Verify that input field First Name placeholder text = "First Name" ', () => {
-      RegisterPage.verifyIFFirstNamePlaceholder();
+      expect(RegisterPage.inputFieldFirstName).toHaveAttribute('placeholder','First Name');
     });
 
     it('TC - REG007 Verify that the user can input 1 symbol', () => {
@@ -53,10 +53,6 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
 
     it('TC - REG009 Verify that the user can input 20 symbols', () => {
       RegisterPage.verifyInputFirstName(userData.users.name.twentySymbols, expected.name.twentySymbols);
-    });
-
-    it.skip('TC - REG010 Verify that the user can input 21 symbols', () => {
-      RegisterPage.verifyInputFirstName(userData.users.name.twentyOneSymbols, expected.name.twentyOneSymbols);
     });
 
     it('TC - REG011 Verify that input field does not accept digits', () => {
@@ -74,11 +70,11 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
     });
 
     it('TC - REG013 Verify the input field Last Name is present', () => {
-      RegisterPage.verifyIFLastNameExists();
+      expect(RegisterPage.inputFieldLastName).toBeExisting();
     });
 
     it('TC - REG014 Verify that input field\'s placeholder text = Last Name', () => {
-      RegisterPage.verifyIFLastnamePlaceholder();
+      expect(RegisterPage.inputFieldLastName).toHaveAttribute('placeholder', 'Last Name');
     });
 
     it('TC - REG015 Verify that the user can input 1 symbol', () => {
@@ -91,10 +87,6 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
 
     it('TC - REG017 Verify that the user can input 20 symbols', () => {
       RegisterPage.verifyInputFieldLastName(userData.users.name.twentySymbols, expected.name.twentySymbols);
-    });
-
-    it.skip('TC - REG018 Verify that the user can not input 21 symbols', () => {
-      RegisterPage.verifyInputFieldLastName(userData.users.name.twentyOneSymbols, expected.name.twentyOneSymbols);
     });
 
     it('TC - REG019 Verify that input field does not accept digits', () => {
@@ -113,8 +105,28 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
     });
 
     it('TC - REG021 Verify that label "Country" is present', () => {
-      RegisterPage.verifyInputfieldCountryExist();
+      expect(RegisterPage.inputFieldCountry).toBeExisting();
     });
+
+    it('TC - REG023-1 Verify that dropdown menu contains option by default "United States"', () => {
+      expect(RegisterPage.inputFieldCountry).toHaveText('United States');
+    });
+
+    it.skip('TC - REG023 Verify that dropdown menu contains "United States"', () => {
+      RegisterPage.selectCountry(RegisterPage.inputFieldCountry, userData.users.country.UnitedStates);
+      expect(RegisterPage.selectedCountry).toHaveText(expected.country.UnitedStates);
+    });
+
+    it.skip('TC - REG024 Verify that dropdown menu contains "Russia"', () => {
+      RegisterPage.selectCountry(RegisterPage.inputFieldCountry, userData.users.country.Russia);
+      expect(RegisterPage.selectedCountry).toHaveText(expected.country.Russia);
+    });
+
+    it.skip('TC - REG025 Verify that dropdown menu contains "Ukraine"', () => {
+      RegisterPage.selectCountry(RegisterPage.inputFieldCountry, userData.users.country.Ukraine);
+      expect(RegisterPage.selectedCountry).toHaveText(expected.country.Ukraine);
+    });
+
   });
 
   describe('REGISTRATION PAGE - PHONE INPUT FIELD', () => {
@@ -152,5 +164,6 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
       RegisterPage.open();
     });
   });
-
 });
+
+

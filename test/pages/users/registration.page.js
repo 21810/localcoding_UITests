@@ -7,7 +7,9 @@ class RegistrationPage extends BasePage {
   get header() {return $('h1');}
   get inputFieldFirstName() {return $('#user_login_firstName');}
   get inputFieldLastName() {return $('#user_login_lastName');}
-  get inputFieldCountry() {return $('#user_login_countryName');}
+  get inputFieldCountry() {return $('//div[@class="ant-select ant-select-lg ant-select-single ant-select-show-arrow"]');}
+  get selectedCountry() {return $('//span[@class="ant-select-selection-item"]');}
+  get activeCountry() {return $("//div[@class='ant-select-item ant-select-item-option ant-select-item-option-active']");}
   get inputFieldPhone() {return $('user_login_phone');}
   get inputFieldEmail () {return $('#user_login_email');}
   get inputFieldPassword () {return $('user_login_password');}
@@ -17,7 +19,6 @@ class RegistrationPage extends BasePage {
   open() {
     super.open(url.register);
   }
-
   getTitleLocalCoding() {
     const title = browser.getTitle();
     expect(title).toEqual(expected.registration.title);
@@ -31,22 +32,6 @@ class RegistrationPage extends BasePage {
   verifyHeader() {
     expect(this.header).toHaveText(expected.registration.header);
   }
-  
-  verifyIFFirstNameExist() {
-    expect(this.inputFieldFirstName).toBeExisting();
-  }
-
-  verifyIFLastNameExists() {
-    expect(this.inputFieldLastName).toBeExisting();
-  }
-
-  verifyIFFirstNamePlaceholder() {
-    expect(this.inputFieldFirstName).toHaveAttribute('placeholder', 'First Name');
-  }
-
-  verifyIFLastnamePlaceholder() {
-    expect(this.inputFieldLastName).toHaveAttribute('placeholder', 'Last Name');
-  }
 
   verifyInputFirstName(symbols, exp) {
     this.inputFieldFirstName.setValue(symbols);
@@ -58,8 +43,18 @@ class RegistrationPage extends BasePage {
     expect(this.inputFieldLastName).toHaveValue(exp);
   }
 
-  verifyInputfieldCountryExist() {
-    expect(this.inputFieldCountry).toBeExisting();
+  selectCountry(elem, text) {
+    elem.click();
+    let valueOfCountry;
+    let iteration = true;
+    do {
+      browser.keys(['ArrowUp']);
+      valueOfCountry = this.activeCountry.getAttribute('title');
+      if (valueOfCountry === text) {
+        browser.keys(['Enter']);
+        iteration = false;
+      }
+    } while (iteration);
   }
 
   verifyErrorNameNotIncludeNumbers(symbols, err) {

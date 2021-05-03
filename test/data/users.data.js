@@ -65,7 +65,18 @@ const users = {
     UnitedStates: 'United States',
     Russia: 'Russia',
     Ukraine: 'Ukraine'
+  },
+
+  phone: {
+    nineDigits: 123456789,
+    tenDigits: 1234567890,
+    elevenDigits: 12345678912,
+    twelveDigits: 123456789112,
+    letters: 'United States',
+    specialChar: '!@#$%^&*&^',
+    combainSCharAndDigits: '123456789+',
+    combainLettersAndDigits: '123456789+'
   }
 };
 
-module.exports = { users };
+module.exports = {users};

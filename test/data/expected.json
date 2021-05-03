@@ -25,15 +25,25 @@
     "twentyOneSymbols": "PedroPedroPedroPedroP"
   },
 
-  "errorMessages": {
-    "nameShouldNotIncludeNumbers": "Name should not include numbers",
-    "nameShouldNotIncludeCharacters": "Name should not include non word characters"
-  },
-
   "country": {
     "UnitedStates": "United States",
     "Russia": "Russia",
     "Ukraine": "Ukraine"
+  },
+
+  "phone": {
+    "phoneIF": "phone number",
+    "tenDigits": "1234567890",
+    "elevenDigits": "12345678912"
+  },
+
+  "errorMessages": {
+    "nameShouldNotIncludeNumbers": "Name should not include numbers",
+    "nameShouldNotIncludeCharacters": "Name should not include non word characters",
+    "required": "Required",
+    "phoneNumberDigits": "Phone number must be min: 10 and max: 11 numbers.",
+    "phoneMustOnlyContainNumber": "Phone must only contain numbers."
   }
+
 }
 

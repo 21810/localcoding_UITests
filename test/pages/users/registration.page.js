@@ -63,7 +63,6 @@ class RegistrationPage extends BasePage {
 
   verifyInputFieldPhone(digits, exp) {
     this.inputFieldPhone.setValue(digits);
-    browser.pause(3000);
     expect(this.inputFieldPhone).toHaveValue(exp);
   }
 

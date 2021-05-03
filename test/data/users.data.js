@@ -58,9 +58,25 @@ const users = {
     tenSymbols: 'PedroPedro',
     twentySymbols: 'PedroPedroPedroPedroPedro',
     twentyOneSymbols: 'PedroPedroPedroPedroP',
-    digits: '123',
+    digits: 123,
     specialChar: '!@#$%'
+  },
+  country: {
+    UnitedStates: 'United States',
+    Russia: 'Russia',
+    Ukraine: 'Ukraine'
+  },
+
+  phone: {
+    nineDigits: 123456789,
+    tenDigits: 1234567890,
+    elevenDigits: 12345678912,
+    twelveDigits: 123456789112,
+    letters: 'United States',
+    specialChar: '!@#$%^&*&^',
+    combainSCharAndDigits: '123456789+',
+    combainLettersAndDigits: '123456789+'
   }
 };
 
-module.exports = { users };
+module.exports = {users};

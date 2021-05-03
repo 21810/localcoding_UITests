@@ -1,8 +1,11 @@
 {
-  "header" : "Welcome back!",
-
-  "logoutLink": "Logout",
-
+  "login": {
+    "header": "Welcome back!",
+    "logoutLink": "Logout"
+  },
+  "reset": {
+     "resetHeader": "Reset password"
+  },
   "registration": {
     "url": "https://stage.localcoding.us/user/register",
     "title": "Local Coding",

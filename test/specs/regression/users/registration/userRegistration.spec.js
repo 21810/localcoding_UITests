@@ -1,6 +1,6 @@
 import HomePage from '../../../../pages/home.page';
 import RegisterPage from '../../../../pages/users/registration.page';
-import userData from '../../../../data/users.data';
+import userData, {users} from '../../../../data/users.data';
 import expected from '../../../../data/expected.json';
 
 describe('REGISTRATION PAGE - POSITIVE', () => {
@@ -149,10 +149,6 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
       RegisterPage.open();
     });
 
-    beforeEach('Refresh', function () {
-      browser.refresh();
-    });
-
     it('TC - REG026 Verify that label "Phone" is present', () => {
       expect(RegisterPage.inputFieldPhone).toBeExisting();
     });
@@ -169,6 +165,7 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
       RegisterPage.selectCountry(RegisterPage.inputFieldCountry, userData.users.country.Russia);
       expect(RegisterPage.selectedCountry).toHaveText(expected.country.Russia);
       expect(RegisterPage.inputFieldPhonePrefix).toHaveText('+7');
+      browser.refresh();
     });
 
     it('TC - REG030 Verify that input field accepts 10 digits', () => {
@@ -209,12 +206,88 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
     before(() => {
       RegisterPage.open();
     });
+
+    beforeEach('Refresh', function () {
+      browser.refresh();
+    });
+
+    it('TC-REG038 Verify that input field Email is present', function () {
+      expect(RegisterPage.inputFieldEmail).toBeExisting();
+    });
+
+    it('TC-REG039 Verify that input field has placeholder text = Email', function () {
+      expect(RegisterPage.inputFieldEmail).toHaveAttribute('placeholder', expected.email.emailIF);
+    });
+
+    it('TC-REG040 Verify that input field accepts letters', function () {
+      RegisterPage.verifyInputFieldEmail(userData.users.new.email, expected.email.new);
+    });
+
+    it('TC-REG041 Verify that input field accepts combination of letters and digits', function () {
+      RegisterPage.verifyInputFieldEmail(userData.users.email.new123, expected.email.new123);
+    });
+
+    it('TC-REG042 Verify that input field accepts combination of letters, special char and digits', function () {
+      RegisterPage.verifyInputFieldEmail(userData.users.email.lettersDigitsSpChar, expected.email.lettersDigitsSpChar);
+    });
+
+    it('TC-REG043 Verify that input field accepts 1 letter', function () {
+      RegisterPage.verifyInputFieldEmail(userData.users.email.oneLetter, expected.email.oneLetter);
+    });
+
+    it('TC-REG044 Verify that input field accepts 1 digit', function () {
+      RegisterPage.verifyInputFieldEmail(userData.users.email.oneDigit, expected.email.oneDigit);
+    });
+
+    it('TC-REG045 Verify that input field accepts 1 symbol', function () {
+      RegisterPage.verifyInputFieldEmail(userData.users.email.oneSymbol, expected.email.oneSymbol);
+    });
+
+    it('TC-REG046 Verify that Email is not valid without "." before domane', function () {
+      RegisterPage.verifyErrorEmailIsNotValid(userData.users.email.withoutDot, expected.errorMessages.emailIsNotValid);
+    });
+
+    it('TC-REG047 Verify that Email is not valid without "@"', function () {
+      RegisterPage.verifyErrorEmailIsNotValid(userData.users.email.withoutAtSign, expected.errorMessages.emailIsNotValid);
+    });
+
+    it('TC-REG048 Verify that Email is not valid with "@" in the name', function () {
+      RegisterPage.verifyErrorEmailIsNotValid(userData.users.email.withoutAtSignInTheName, expected.errorMessages.emailIsNotValid);
+    });
+
+    it('TC-REG049 Verify that Email is not valid if username ends with dot (.)', function () {
+      RegisterPage.verifyErrorEmailIsNotValid(userData.users.email.dotInTheName, expected.errorMessages.emailIsNotValid);
+    });
+
+    it('TC-REG050 Verify that user can not register with exist email', function () {
+      RegisterPage.setFirstName(users.new.firstName);
+      RegisterPage.setLastName(users.new.lastName);
+      RegisterPage.setPhone(users.new.phone);
+      RegisterPage.setEmail(users.new.email);
+      RegisterPage.setPassword(users.new.password);
+      RegisterPage.termsAndAgreementsCheckbox.click();
+      RegisterPage.registerButton.click();
+      expect(RegisterPage.errorUserExists).toHaveText(expected.errorMessages.userExists);
+    });
   });
 
   describe('REGISTRATION PAGE - PASSWORD INPUT FIELD', () => {
     before(() => {
       RegisterPage.open();
     });
+
+    beforeEach('Refresh', function () {
+      browser.refresh();
+    });
+
+    it('TC-REG051 Verify the input field Password is present', function () {
+      expect(RegisterPage.inputFieldPassword).toBeExisting();
+    });
+
+    it('TC-REG052 Verify that input field has placeholder text = Password', function () {
+      expect(RegisterPage.inputFieldPassword).toHaveAttribute('placeholder', expected.password.passwordIF);
+    });
+
   });
 
   describe('REGISTRATION PAGE - TERMS AND AGREEMENTS', () => {
@@ -235,6 +308,8 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
     });
   });
 });
+
+
 
 
 

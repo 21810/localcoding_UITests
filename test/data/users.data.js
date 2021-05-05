@@ -76,7 +76,21 @@ const users = {
     specialChar: '!@#$%^&*&^',
     combainSCharAndDigits: '123456789+',
     combainLettersAndDigits: '123456789+'
+  },
+
+  email: {
+    new123: 'new123@localcoding.us',
+    lettersDigitsSpChar: 'new123!$@localcoding.us',
+    oneLetter: 'n@localcoding.us',
+    oneDigit: '1@localcoding.us',
+    oneSymbol: '$@localcoding.us',
+    withoutDot: 'new@localcodingus',
+    withoutAtSign: 'newlocalcoding.us',
+    withoutAtSignInTheName: 'n@ew@localcoding.us',
+    dotInTheName: 'new.@localcoding.us'
+
   }
+
 };
 
 module.exports = {users};

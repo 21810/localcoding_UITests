@@ -8,10 +8,14 @@ class RegistrationPage extends BasePage {
   get inputFieldFirstName() {return $('#user_login_firstName');}
   get inputFieldLastName() {return $('#user_login_lastName');}
   get inputFieldCountry() {return $('//div[@class="ant-select ant-select-lg ant-select-single ant-select-show-arrow"]');}
+  get inputFieldEmail() {return $('#user_login_email');}
+  get inputFieldPassword() {return $('#user_login_password');}
   get selectedCountry() {return $('//span[@class="ant-select-selection-item"]');}
   get activeCountry() {return $("//div[@class='ant-select-item ant-select-item-option ant-select-item-option-active']");}
   get inputFieldPhone() { return $('//div[@class="ant-form-item-control-input-content"]//input[@id="user_login_phone"]');}
   get inputFieldPhonePrefix() {return $('//span[@class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"]/span[@class="ant-input-prefix"]');}
+  get termsAndAgreementsCheckbox() {return $ ('//span[@class="ant-checkbox"]');}
+  get registerButton () {return $('.ant-btn.ant-btn-primary.ant-btn-lg');}
 
   get errorNameNotIncludeNumbers() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_firstName"]]//div[@role="alert"]');}
   get errorLastNameNotIncludeNumbers() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_lastName"]]//div[@role="alert"]');}
@@ -19,10 +23,13 @@ class RegistrationPage extends BasePage {
   get errorRequiredLastName() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_lastName"]]//div[@role="alert"]')};
   get errorPhoneNumberMustBeTenOrEleven() {return $('//div[@class="ant-form-item-explain ant-form-item-explain-error"]');}
   get errorPhoneMustOnlyContainNumbers() {return $('//div[contains(text(),"Phone must only contain numbers.")]');}
+  get errorEmailIsNotValid() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_email"]]//div[@role="alert"]');}
+  get errorUserExists() {return $('//div[@class="ant-notification-notice-message"]');}
 
   open() {
     super.open(url.register);
   }
+
   getTitleLocalCoding() {
     const title = browser.getTitle();
     expect(title).toEqual(expected.registration.title);
@@ -35,6 +42,22 @@ class RegistrationPage extends BasePage {
 
   verifyHeader() {
     expect(this.header).toHaveText(expected.registration.header);
+  }
+
+  setFirstName(firstName) {
+    this.inputFieldFirstName.setValue(firstName);
+  }
+  setLastName(LastName) {
+    this.inputFieldLastName.setValue(LastName);
+  }
+  setPhone(phone) {
+    this.inputFieldPhone.setValue(phone);
+  }
+  setEmail(email) {
+    this.inputFieldEmail.setValue(email);
+  }
+  setPassword(password) {
+    this.inputFieldPassword.setValue(password);
   }
 
   verifyInputFieldFirstName(symbols, exp) {
@@ -66,6 +89,11 @@ class RegistrationPage extends BasePage {
     expect(this.inputFieldPhone).toHaveValue(exp);
   }
 
+  verifyInputFieldEmail(symbols, exp) {
+    this.inputFieldEmail.setValue(symbols);
+    expect(this.inputFieldEmail).toHaveValue(exp);
+  }
+
   verifyErrorNameNotIncludeNumbers(symbols, err) {
     this.inputFieldFirstName.setValue(symbols);
     expect(this.errorNameNotIncludeNumbers).toBeDisplayed();
@@ -89,6 +117,12 @@ class RegistrationPage extends BasePage {
     expect(this.errorPhoneMustOnlyContainNumbers).toBeDisplayed();
     expect(this.errorPhoneMustOnlyContainNumbers).toHaveText(err);
     expect(this.errorPhoneMustOnlyContainNumbers).toHaveText(err);
+  }
+
+  verifyErrorEmailIsNotValid (symbols, err) {
+    this.inputFieldEmail.setValue(symbols);
+    expect(this.errorEmailIsNotValid).toBeDisplayed();
+    expect(this.errorEmailIsNotValid).toHaveText(err);
   }
 
   clearInput(element) {

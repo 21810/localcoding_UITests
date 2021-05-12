@@ -122,13 +122,8 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
       expect(RegisterPage.inputFieldCountry).toBeExisting();
     });
 
-    it('TC - REG023-1 Verify that dropdown menu contains option by default "United States"', () => {
+    it('TC - REG023 Verify that dropdown menu contains option by default "United States"', () => {
       expect(RegisterPage.inputFieldCountry).toHaveText('United States');
-    });
-
-    it.skip('TC - REG023 Verify that dropdown menu contains "United States"', () => {
-      RegisterPage.selectCountry(RegisterPage.inputFieldCountry, userData.users.country.UnitedStates);
-      expect(RegisterPage.selectedCountry).toHaveText(expected.country.UnitedStates);
     });
 
     it('TC - REG024 Verify that dropdown menu contains "Russia"', () => {
@@ -288,12 +283,82 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
       expect(RegisterPage.inputFieldPassword).toHaveAttribute('placeholder', expected.password.passwordIF);
     });
 
+    it('TC-REG053 Verify the input field Password have an eye icon', function (){
+      expect(RegisterPage.eyeIcon).toBeDisplayed();
+    });
+
+    it('REG-054 Verify that eye icon lets toggle password visibility', function (){
+      RegisterPage.setPassword(users.new.password);
+      RegisterPage.eyeIcon.click();
+      expect(RegisterPage.inputFieldPassword).toHaveValue(expected.password.new);
+    });
+
+    it('REG-056 Verify that input field accepts 5 symbols', function (){
+      RegisterPage.setPassword(users.password.fiveSymbols);
+      expect(RegisterPage.errorPasswordMustBeFiveSymbols).not.toBeDisplayed();
+    });
+
+    it('REG-057 Verify that input field does not accept 4 symbols', function (){
+      RegisterPage.setPassword(users.password.fourSymbols);
+      expect(RegisterPage.errorPasswordMustBeFiveSymbols).toBeDisplayed();
+    });
+
+    it('REG-058 Verify that input field accepts letters', function (){
+      RegisterPage.setPassword(users.password.letters);
+      expect(RegisterPage.errorPasswordMustBeFiveSymbols).not.toBeDisplayed();
+    });
+
+    it('REG-059 Verify that input field accepts digits', function (){
+      RegisterPage.setPassword(users.password.digits);
+      expect(RegisterPage.errorPasswordMustBeFiveSymbols).not.toBeDisplayed();
+    });
+
+    it('REG-060 Verify that input field accepts special characters', function (){
+      RegisterPage.setPassword(users.password.specialChar);
+      expect(RegisterPage.errorPasswordMustBeFiveSymbols).not.toBeDisplayed();
+    });
+
+    it('REG-061 Verify that input field accepts combination of letters and special characters', function (){
+      RegisterPage.setPassword(users.password.lettersAndSpecialChar);
+      expect(RegisterPage.errorPasswordMustBeFiveSymbols).not.toBeDisplayed();
+    });
+
+    it('REG-062 Verify that input field accepts combination of digits and special characters', function (){
+      RegisterPage.setPassword(users.password.digitsAndSpecialChar);
+      expect(RegisterPage.errorPasswordMustBeFiveSymbols).not.toBeDisplayed();
+    });
+
+    it('REG-063 Verify that input field accepts combination of letters and digits', function (){
+      RegisterPage.setPassword(users.password.lettersAndDigits);
+      expect(RegisterPage.errorPasswordMustBeFiveSymbols).not.toBeDisplayed();
+    });
+
+    it('REG-064 Verify that input field does not accepts  whitespace', function (){
+      RegisterPage.setPassword(users.password.whiteSpace);
+      expect(RegisterPage.errorPasswordWhitespace).toBeDisplayed();
+    });
+
   });
 
   describe('REGISTRATION PAGE - TERMS AND AGREEMENTS', () => {
     before(() => {
       RegisterPage.open();
     });
+
+    it('REG-065 Verify that check box "I have read Terms and agreements " is present', function (){
+      expect(RegisterPage.checkBoxTermsAndAgreements).toBeExisting();
+    });
+
+    it('REG-067 Verify that check box for "I have read Terms and agreements " after clicking have check mark', function (){
+      RegisterPage.checkBoxTermsAndAgreements.click();
+      expect(RegisterPage.checkBoxTermsAndAgreements).toBeChecked();
+    });
+
+    it('REG-069 Verify that upon clicking on"Terms and agreements " a pop-up window is open', function (){
+      RegisterPage.buttonTermsAndAgreements.click();
+      expect(RegisterPage.termsOfService).toBeDisplayed();
+    });
+
   });
 
   describe('REGISTRATION PAGE - REGISTER BUTTON', () => {

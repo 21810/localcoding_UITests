@@ -45,7 +45,9 @@
     "oneSymbol": "$@localcoding.us"
   },
   "password": {
-    "passwordIF": "Password"
+    "passwordIF": "Password",
+    "new": "New123",
+    "fiveSymbols": "New12"
   },
   "errorMessages": {
     "nameShouldNotIncludeNumbers": "Name should not include numbers",

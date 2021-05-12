@@ -16,6 +16,10 @@ class RegistrationPage extends BasePage {
   get inputFieldPhonePrefix() {return $('//span[@class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"]/span[@class="ant-input-prefix"]');}
   get termsAndAgreementsCheckbox() {return $ ('//span[@class="ant-checkbox"]');}
   get registerButton () {return $('.ant-btn.ant-btn-primary.ant-btn-lg');}
+  get eyeIcon () {return $('//span[@class="ant-input-suffix"]/span[@class="anticon anticon-eye-invisible ant-input-password-icon"]');}
+  get checkBoxTermsAndAgreements() {return $('#user_login_agreement');}
+  get buttonTermsAndAgreements(){return $('//span[contains(text(),\'Terms and agreements\')]')}
+  get termsOfService() {return $('//div[@class="ant-drawer-body"]/h1');}
 
   get errorNameNotIncludeNumbers() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_firstName"]]//div[@role="alert"]');}
   get errorLastNameNotIncludeNumbers() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_lastName"]]//div[@role="alert"]');}
@@ -25,6 +29,8 @@ class RegistrationPage extends BasePage {
   get errorPhoneMustOnlyContainNumbers() {return $('//div[contains(text(),"Phone must only contain numbers.")]');}
   get errorEmailIsNotValid() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_email"]]//div[@role="alert"]');}
   get errorUserExists() {return $('//div[@class="ant-notification-notice-message"]');}
+  get errorPasswordMustBeFiveSymbols() {return $('//div[contains(text(),"Password must be min: 5 symbols.")]');}
+  get errorPasswordWhitespace() {return $('//div[contains(text(),"Password must be without whitespace.")]');}
 
   open() {
     super.open(url.register);

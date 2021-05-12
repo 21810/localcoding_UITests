@@ -88,7 +88,18 @@ const users = {
     withoutAtSign: 'newlocalcoding.us',
     withoutAtSignInTheName: 'n@ew@localcoding.us',
     dotInTheName: 'new.@localcoding.us'
+  },
 
+  password: {
+    fiveSymbols: 'New12',
+    fourSymbols: 'New1',
+    letters: 'NewUser',
+    digits: '12345',
+    specialChar: '!@#$%',
+    lettersAndSpecialChar: 'new@#',
+    digitsAndSpecialChar: '123@#',
+    lettersAndDigits: 'New123',
+    whiteSpace: 'New  123'
   }
 
 };

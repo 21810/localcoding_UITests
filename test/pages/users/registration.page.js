@@ -14,12 +14,13 @@ class RegistrationPage extends BasePage {
   get activeCountry() {return $("//div[@class='ant-select-item ant-select-item-option ant-select-item-option-active']");}
   get inputFieldPhone() { return $('//div[@class="ant-form-item-control-input-content"]//input[@id="user_login_phone"]');}
   get inputFieldPhonePrefix() {return $('//span[@class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"]/span[@class="ant-input-prefix"]');}
-  get termsAndAgreementsCheckbox() {return $ ('//span[@class="ant-checkbox"]');}
   get registerButton () {return $('.ant-btn.ant-btn-primary.ant-btn-lg');}
   get eyeIcon () {return $('//span[@class="ant-input-suffix"]/span[@class="anticon anticon-eye-invisible ant-input-password-icon"]');}
   get checkBoxTermsAndAgreements() {return $('#user_login_agreement');}
   get buttonTermsAndAgreements(){return $('//span[contains(text(),\'Terms and agreements\')]')}
-  get termsOfService() {return $('//div[@class="ant-drawer-body"]/h1');}
+  get termsOfServicePage() {return $('//div[@class="ant-drawer-body"]/h1');}
+  get footer() {return $('//div[@class="ant-form-item-control-input-content"]/p');}
+  get footerLogin() {return $('//a[contains(text(),"Log in")]');}
 
   get errorNameNotIncludeNumbers() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_firstName"]]//div[@role="alert"]');}
   get errorLastNameNotIncludeNumbers() {return $('//div[contains(@class,"ant-form-item-with-help")][.//input[@id="user_login_lastName"]]//div[@role="alert"]');}
@@ -53,15 +54,19 @@ class RegistrationPage extends BasePage {
   setFirstName(firstName) {
     this.inputFieldFirstName.setValue(firstName);
   }
+
   setLastName(LastName) {
     this.inputFieldLastName.setValue(LastName);
   }
+
   setPhone(phone) {
     this.inputFieldPhone.setValue(phone);
   }
+
   setEmail(email) {
     this.inputFieldEmail.setValue(email);
   }
+
   setPassword(password) {
     this.inputFieldPassword.setValue(password);
   }

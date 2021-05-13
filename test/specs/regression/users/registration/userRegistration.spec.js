@@ -1,5 +1,6 @@
 import HomePage from '../../../../pages/home.page';
 import RegisterPage from '../../../../pages/users/registration.page';
+import LoginPage from '../../../../pages/users/login.page';
 import userData, {users} from '../../../../data/users.data';
 import expected from '../../../../data/expected.json';
 
@@ -260,19 +261,69 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
       RegisterPage.setPhone(users.new.phone);
       RegisterPage.setEmail(users.new.email);
       RegisterPage.setPassword(users.new.password);
-      RegisterPage.termsAndAgreementsCheckbox.click();
+      RegisterPage.checkBoxTermsAndAgreements.click();
       RegisterPage.registerButton.click();
       expect(RegisterPage.errorUserExists).toHaveText(expected.errorMessages.userExists);
+    });
+
+    it('TC-REG050_1 Verify that user can not register with exist fields - First Name', function () {
+      RegisterPage.setLastName(users.new.lastName);
+      RegisterPage.setPhone(users.new.phone);
+      RegisterPage.setEmail(users.new.email);
+      RegisterPage.setPassword(users.new.password);
+      RegisterPage.checkBoxTermsAndAgreements.click();
+      expect(RegisterPage.registerButton).toBeDisabled();
+    });
+
+    it('TC-REG050_2 Verify that user can not register with exist fields - Last Name', function () {
+      RegisterPage.setFirstName(users.new.firstName);
+      RegisterPage.setPhone(users.new.phone);
+      RegisterPage.setEmail(users.new.email);
+      RegisterPage.setPassword(users.new.password);
+      RegisterPage.checkBoxTermsAndAgreements.click();
+      expect(RegisterPage.registerButton).toBeDisabled();
+    });
+
+    it('TC-REG050_3 Verify that user can not register with exist fields - Phone', function () {
+      RegisterPage.setFirstName(users.new.firstName);
+      RegisterPage.setLastName(users.new.lastName);
+      RegisterPage.setEmail(users.new.email);
+      RegisterPage.setPassword(users.new.password);
+      RegisterPage.checkBoxTermsAndAgreements.click();
+      expect(RegisterPage.registerButton).toBeDisabled();
+    });
+
+    it('TC-REG050_4 Verify that user can not register with exist fields - Email', function () {
+      RegisterPage.setFirstName(users.new.firstName);
+      RegisterPage.setLastName(users.new.lastName);
+      RegisterPage.setPhone(users.new.phone);
+      RegisterPage.setPassword(users.new.password);
+      RegisterPage.checkBoxTermsAndAgreements.click();
+      expect(RegisterPage.registerButton).toBeDisabled();
+    });
+
+    it('TC-REG050_5 Verify that user can not register with exist fields - Password', function () {
+      RegisterPage.setFirstName(users.new.firstName);
+      RegisterPage.setLastName(users.new.lastName);
+      RegisterPage.setPhone(users.new.phone);
+      RegisterPage.setEmail(users.new.email);
+      RegisterPage.checkBoxTermsAndAgreements.click();
+      expect(RegisterPage.registerButton).toBeDisabled();
+    });
+
+    it('TC-REG050_6 Verify that user can not register with exist fields - Terms and Agreements', function () {
+      RegisterPage.setFirstName(users.new.firstName);
+      RegisterPage.setLastName(users.new.lastName);
+      RegisterPage.setPhone(users.new.phone);
+      RegisterPage.setEmail(users.new.email);
+      RegisterPage.setPassword(users.new.password);
+      expect(RegisterPage.registerButton).toBeDisabled();
     });
   });
 
   describe('REGISTRATION PAGE - PASSWORD INPUT FIELD', () => {
     before(() => {
       RegisterPage.open();
-    });
-
-    beforeEach('Refresh', function () {
-      browser.refresh();
     });
 
     it('TC-REG051 Verify the input field Password is present', function () {
@@ -356,7 +407,7 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
 
     it('REG-069 Verify that upon clicking on"Terms and agreements " a pop-up window is open', function (){
       RegisterPage.buttonTermsAndAgreements.click();
-      expect(RegisterPage.termsOfService).toBeDisplayed();
+      expect(RegisterPage.termsOfServicePage).toBeDisplayed();
     });
 
   });
@@ -365,11 +416,34 @@ describe('REGISTRATION PAGE - POSITIVE', () => {
     before(() => {
       RegisterPage.open();
     });
+
+    it('REG-070 Verify that submit button is present', function (){
+      expect(RegisterPage.registerButton).toBeDisabled();
+    });
+
+    it('REG-071 Verify that submit button text = Register', function (){
+      expect(RegisterPage.registerButton).toHaveText(expected.registration.registerBtn);
+    });
+
   });
 
   describe('REGISTRATION PAGE - FOOTER', () => {
     before(() => {
       RegisterPage.open();
+    });
+
+    it('REG-075 Verify that footer is present', function () {
+      expect(RegisterPage.footer).toBeExisting();
+      expect(RegisterPage.footer).toHaveText(expected.registration.footer);
+    });
+
+    it('REG-077 Verify that footer Log in is clickable', function () {
+      expect(RegisterPage.footerLogin).toBeClickable();
+    });
+
+    it('REG-078 Verify that upon click on Log in link user will redirect on login page ', function () {
+      RegisterPage.footerLogin.click();
+      expect(LoginPage.loginPageHeader).toHaveText(expected.login.header);
     });
   });
 });

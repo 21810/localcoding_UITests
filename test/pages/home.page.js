@@ -15,6 +15,10 @@ class HomePage extends BasePage {
   clickChallengesLink() {
     this.linkChallenges.click();
   }
+
+  clickLoginLink() {
+    this.linkLogin.click();
+  }
 }
 
 export default new HomePage();

@@ -8,8 +8,11 @@
   },
   "registration": {
     "url": "https://stage.localcoding.us/user/register",
+    "urlLogin": "https://stage.localcoding.us/user/login",
     "title": "Local Coding",
-    "header": "Create an account"
+    "header": "Create an account",
+    "registerBtn": "Register",
+    "footer": "Already have an account? Just click Log in."
   },
   "challenges": {
     "list": {
@@ -58,5 +61,6 @@
     "emailIsNotValid": "'email' is not a valid email",
     "userExists": "User with this e-mail exists"
   }
+
 }
 

@@ -11,7 +11,7 @@ describe ('User Logout - Smoke', () => {
     LoginPage.userLogin(users.new.email, users.new.password);
   });
 
-  it('Logout link in User dropdown = "Logout"', function () {
+  it.skip('Logout link in User dropdown = "Logout"', function () {
     LoginPage.userDropdown.click();
     const logoutText = LoginPage.logoutDropdownLink.getText();
     expect(logoutText).toEqual(expected.logoutLink);
@@ -29,5 +29,21 @@ describe ('User Login Smoke', () => {
     LoginPage.setPassword(users.new.password);
     LoginPage.clickSubmitButton();
     ProfilePortalPage.isOpen();
+  });
+});
+
+describe('User Registration Smoke', () => {
+  before(() => {
+    RegisterPage.open();
+  });
+
+  it('TC-REG072 Verify that submit button is enabled after all mandatory fields are filled with valid data', function () {
+    RegisterPage.setFirstName(users.new.firstName);
+    RegisterPage.setLastName(users.new.lastName);
+    RegisterPage.setPhone(users.new.phone);
+    RegisterPage.setEmail(users.new.email);
+    RegisterPage.setPassword(users.new.password);
+    RegisterPage.checkBoxTermsAndAgreements.click();
+    expect(RegisterPage.registerButton).toBeEnabled();
   });
 });

@@ -68,7 +68,7 @@ describe('SHOP PRODUCT PAGE - POSITIVE', () => {
 
   describe('SHOP PRODUCT PAGE - ROLE LEARNER', () => {
     before(() => {
-      browser.url('https://stage.localcoding.us/shop');
+      ShopProductPage.open();
     });
 
     after(() => {

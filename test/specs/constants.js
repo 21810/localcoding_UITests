@@ -6,6 +6,7 @@ const url = {
   reset: '/user/password/reset',
   //challenges
   challenges: '/challenge',
+  shop: '/shop',
 
   server: 'https://server-stage.pasv.us',
 };

@@ -14,7 +14,7 @@ class ShopProductPage extends BasePage {
   get javaScriptSyntaxCoursePage () {return $('//div//h1[contains(text(),"JavaScript Syntax")]');}
 
   open() {
-    super.open(url.register);
+    super.open(url.shop);
   }
 }
 

@@ -21,6 +21,13 @@ class ShopProductPage extends BasePage {
   get reactJSDescription () {return $('//*[contains(text(),"Длительность 2 месяца.")]');}
   get fullstackReactProjectDescription () {return $('//*[contains(text(),"Доступно только выпускникам курса React JS")]');}
 
+  get javaScriptSyntaxSelfLearnPrice () {return $('//p[contains(text(),"FREE")]');}
+  get javaScriptSyntaxWithTeacherPrice () {return $('//h3[contains(text(),"99.00")]');}
+  get javaScriptPracticePrice () {return $('//p[contains(text(),"$199.00")]');}
+  get reactJSPrice () {return $('//p[contains(text(),"$1,499.00")]');}
+  get fullstackReactProjectPrice () {return $('//p[contains(text(),"$1,499.00")]');}
+
+
   open() {
     super.open(url.shop);
   }

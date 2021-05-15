@@ -70,6 +70,28 @@ describe('SHOP PRODUCT PAGE - POSITIVE', () => {
       expect(ShopProductPage.fullstackReactProjectDescription).toHaveText(expected.courseDescription.fullstackReactProject);
     });
 
+    it('TC SP-027 Verify price for Java Script Syntax SelfLearn course', () => {
+      expect(ShopProductPage.javaScriptSyntaxSelfLearnPrice).toHaveText(expected.price.javaScriptSyntaxSelfLearn);
+    });
+
+    it.skip('TC SP-028 Verify price for Java Script Syntax With Teacher course', () => {
+      ShopProductPage.javaScriptSyntaxWithTeacher.click();
+      expect(ShopProductPage.javaScriptSyntaxWithTeacherPrice).toHaveText(expected.price.javaScriptSyntaxWithTeacher);
+      browser.back();
+    });
+
+    it.skip('TC SP-029 Verify price for JavaScript Practice course', () => {
+      expect(ShopProductPage.javaScriptPracticePrice).toHaveText(expected.price.javaScriptPractice);
+    });
+
+    it.skip('TC SP-027 Verify price for Fullstack React JS course', () => {
+      expect(ShopProductPage.reactJSPrice).toHaveText(expected.price.reactJS);
+    });
+
+    it.skip('TC SP-027 Verify price for Fullstack React Project course', () => {
+      expect(ShopProductPage.fullstackReactProjectPrice).toHaveText(expected.price.fullstackReactProject);
+    });
+
   });
 
   describe('SHOP PRODUCT PAGE - ROLE LEARNER', () => {

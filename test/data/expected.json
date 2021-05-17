@@ -4,7 +4,10 @@
     "logoutLink": "Logout"
   },
   "url": {
-    "shopUrl": "https://stage.localcoding.us/shop"
+    "shopUrl": "https://stage.localcoding.us/shop",
+    "contactUSURL": "https://stage.localcoding.us/contact",
+    "termsOfServiceURL": "https://stage.localcoding.us/terms",
+    "privacyPolicyURL": "https://stage.localcoding.us/privacy"
   },
   "reset": {
     "resetHeader": "Reset password"
@@ -73,7 +76,7 @@
   },
   "price": {
     "javaScriptSyntaxSelfLearn": "FREE",
-    "javaScriptSyntaxWithTeacher": "99.00",
+    "javaScriptSyntaxWithTeacher": "$99.00",
     "javaScriptPractice": "$199.00",
     "reactJS": "$1499.00",
     "fullstackReactProject": "$1499.00"

@@ -8,6 +8,8 @@ class ShopProductPage extends BasePage {
   get javaScriptSyntaxCoursePage () {return $('//div//h1[contains(text(),"JavaScript Syntax")]');}
 
   get startLearningBtn () {return $('//a[contains(text(),"Start learning")]');}
+  get buyNowBtn () {return $$ ('.ant-btn.ant-btn-primary.mb-1rem');}
+  get paymentPage() {return $('//span[contains(text(),"Card information")]');}
 
   get javaScriptSyntaxSelfLearn () {return $('//h3//a[contains(text(),"JavaScript Syntax самостоятельно")]');}
   get javaScriptSyntaxWithTeacher () {return $('//h3//a[contains(text(),"JavaScript Syntax с преподавателем")]');}
@@ -22,10 +24,17 @@ class ShopProductPage extends BasePage {
   get fullstackReactProjectDescription () {return $('//*[contains(text(),"Доступно только выпускникам курса React JS")]');}
 
   get javaScriptSyntaxSelfLearnPrice () {return $('//p[contains(text(),"FREE")]');}
-  get javaScriptSyntaxWithTeacherPrice () {return $('//h3[contains(text(),"99.00")]');}
-  get javaScriptPracticePrice () {return $('//p[contains(text(),"$199.00")]');}
-  get reactJSPrice () {return $('//p[contains(text(),"$1,499.00")]');}
-  get fullstackReactProjectPrice () {return $('//p[contains(text(),"$1,499.00")]');}
+  get javaScriptSyntaxWithTeacherPrice () {return $('//h3');}
+  get javaScriptPracticePrice () {return $('//h3');}
+  get reactJSPrice () {return $('//h3');}
+  get fullstackReactProjectPrice () {return $('//h3');}
+
+  get contactUsFooter () {return $('//a[@data-qa="footerContactUs"]');}
+  get contactUsHeader () {return $('//h1[contains(text(),"Contact us")]');}
+  get termsOfServiceFooter () {return $('//a[@data-qa="footerTerms"]');}
+  get termsOfServiceHeader () {return $ ('//h1[contains(text(),"Terms of Service")]');}
+  get privacyPolicyFooter () {return $('//a[@data-qa="footerPrivacy"]');}
+  get privacyPolicyHeader () {return $ ('//h1[contains(text(),"LOCALCODING Privacy Policy")]');}
 
 
   open() {
@@ -37,11 +46,6 @@ class ShopProductPage extends BasePage {
     this.shopInDropDown.waitForClickable();
     this.shopInDropDown.click();
   }
-
-
-
-
-
 }
 
 export default new ShopProductPage();

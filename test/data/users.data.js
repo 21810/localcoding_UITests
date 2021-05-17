@@ -100,6 +100,13 @@ const users = {
     digitsAndSpecialChar: '123@#',
     lettersAndDigits: 'New123',
     whiteSpace: 'New  123'
+  },
+
+  buyNowBtn: {
+    JavaScriptSyntaxWithTeacher: 0,
+    JavaScriptPractice: 1,
+    ReactJS: 2,
+    FullstackReactProject: 3
   }
 
 };

@@ -74,22 +74,59 @@ describe('SHOP PRODUCT PAGE - POSITIVE', () => {
       expect(ShopProductPage.javaScriptSyntaxSelfLearnPrice).toHaveText(expected.price.javaScriptSyntaxSelfLearn);
     });
 
-    it.skip('TC SP-028 Verify price for Java Script Syntax With Teacher course', () => {
+    it('TC SP-028 Verify price for Java Script Syntax With Teacher course', () => {
       ShopProductPage.javaScriptSyntaxWithTeacher.click();
       expect(ShopProductPage.javaScriptSyntaxWithTeacherPrice).toHaveText(expected.price.javaScriptSyntaxWithTeacher);
       browser.back();
     });
 
-    it.skip('TC SP-029 Verify price for JavaScript Practice course', () => {
+    it('TC SP-029 Verify price for JavaScript Practice course', () => {
+      ShopProductPage.javaScriptPractice.waitForClickable();
+      ShopProductPage.javaScriptPractice.click();
       expect(ShopProductPage.javaScriptPracticePrice).toHaveText(expected.price.javaScriptPractice);
+      browser.back();
     });
 
-    it.skip('TC SP-027 Verify price for Fullstack React JS course', () => {
+    it('TC SP-030 Verify price for React JS course', () => {
+      ShopProductPage.reactJS.waitForClickable();
+      ShopProductPage.reactJS.click();
       expect(ShopProductPage.reactJSPrice).toHaveText(expected.price.reactJS);
+      browser.back();
     });
 
-    it.skip('TC SP-027 Verify price for Fullstack React Project course', () => {
+    it('TC SP-031 Verify price for Fullstack React Project course', () => {
+      ShopProductPage.fullstackReactProject.waitForClickable();
+      ShopProductPage.fullstackReactProject.click();
       expect(ShopProductPage.fullstackReactProjectPrice).toHaveText(expected.price.fullstackReactProject);
+      browser.back();
+    });
+
+    it('TC SP-022 Verify that button Buy now for the course JavaScript Syntax с преподавателем is active and redirect to the checkout page ', () => {
+      ShopProductPage.javaScriptSyntaxWithTeacher.waitForClickable();
+      ShopProductPage.buyNowBtn[userData.users.buyNowBtn.JavaScriptSyntaxWithTeacher].click();
+      expect(ShopProductPage.paymentPage).toBeDisplayed();
+      browser.back();
+    });
+
+    it('TC SP-023 Verify that button Buy now for the course JavaScript Practice is active and redirect to the checkout page ', () => {
+      ShopProductPage.javaScriptPractice.waitForClickable();
+      ShopProductPage.buyNowBtn[userData.users.buyNowBtn.JavaScriptPractice].click();
+      expect(ShopProductPage.paymentPage).toBeDisplayed();
+      browser.back();
+    });
+
+    it('TC SP-024 Verify that button Buy now for the course React JS is active and redirect to the checkout page ', () => {
+      ShopProductPage.reactJS.waitForClickable();
+      ShopProductPage.buyNowBtn[userData.users.buyNowBtn.ReactJS].click();
+      expect(ShopProductPage.paymentPage).toBeDisplayed();
+      browser.back();
+    });
+
+    it('TC SP-025 Verify that button Buy now for the course Fullstack React Project is active and redirect to the checkout page ', () => {
+      ShopProductPage.fullstackReactProject.waitForClickable();
+      ShopProductPage.buyNowBtn[userData.users.buyNowBtn.FullstackReactProject].click();
+      expect(ShopProductPage.paymentPage).toBeDisplayed();
+      browser.back();
     });
 
   });
@@ -266,6 +303,42 @@ describe('SHOP PRODUCT PAGE - POSITIVE', () => {
     });
   });
 
+  describe('SHOP PRODUCT PAGE - TERMS AND AGREEMENTS', () => {
+    before(() => {
+      ShopProductPage.open();
+    });
+
+    it('SP-031 Verify that link "contact us" is present', function () {
+      expect(ShopProductPage.contactUsFooter).toBeExisting();
+    });
+
+    it('SP-031-1 Verify that link "contact us" redirects', function () {
+      ShopProductPage.contactUsFooter.click();
+      expect(ShopProductPage.contactUsHeader).toBeDisplayed();
+      expect(browser.getUrl()).toEqual(expected.url.contactUSURL);
+    });
+
+    it('SP-032 Verify that link "Terms Of Service" is present', function () {
+      expect(ShopProductPage.termsOfServiceFooter).toBeExisting();
+    });
+
+    it('SP-032-1 Verify that link "Terms Of Service" redirects', function () {
+      ShopProductPage.termsOfServiceFooter.click();
+      expect(ShopProductPage.termsOfServiceHeader).toBeDisplayed();
+      expect(browser.getUrl()).toEqual(expected.url.termsOfServiceURL);
+    });
+
+    it('SP-033 Verify that link "Privacy Policy" is present', function () {
+      expect(ShopProductPage.privacyPolicyFooter).toBeExisting();
+    });
+
+    it('SP-033-1 Verify that link "Privacy Policy" redirects', function () {
+      ShopProductPage.privacyPolicyFooter.waitForClickable();
+      ShopProductPage.privacyPolicyFooter.click();
+      expect(ShopProductPage.privacyPolicyHeader).toBeDisplayed();
+      expect(browser.getUrl()).toEqual(expected.url.privacyPolicyURL);
+    });
+
+  });
+
 });
-
-
